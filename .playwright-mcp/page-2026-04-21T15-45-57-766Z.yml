@@ -1,0 +1,100 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e116]:
+    - banner [ref=e117]:
+      - generic [ref=e118]:
+        - link "Starter Kit" [ref=e119] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e120]:
+          - link "홈" [ref=e121] [cursor=pointer]:
+            - /url: /
+          - link "소개" [ref=e122] [cursor=pointer]:
+            - /url: /about
+          - link "기능" [ref=e123] [cursor=pointer]:
+            - /url: /features
+          - link "문의" [ref=e124] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e125]:
+          - button "테마 전환" [ref=e126]:
+            - img
+            - img
+          - link "시작하기" [ref=e127] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e128]:
+      - generic [ref=e129]:
+        - generic [ref=e130]:
+          - heading "기능" [level=1] [ref=e131]
+          - paragraph [ref=e132]: 이 스타터킷에 포함된 모든 기능을 살펴보세요.
+        - generic [ref=e133]:
+          - generic [ref=e134]:
+            - heading "주요 기능" [level=2] [ref=e135]
+            - paragraph [ref=e136]: 빠른 개발을 위한 모든 것이 준비되어 있습니다.
+          - generic [ref=e137]:
+            - generic [ref=e139]:
+              - img [ref=e140]
+              - generic [ref=e142]: 빠른 성능
+              - generic [ref=e143]: Next.js App Router와 React Server Components로 최적화된 성능을 제공합니다.
+            - generic [ref=e145]:
+              - img [ref=e146]
+              - generic [ref=e148]: 다크모드 지원
+              - generic [ref=e149]: CSS 변수 기반 디자인 토큰으로 라이트/다크 모드를 완벽하게 지원합니다.
+            - generic [ref=e151]:
+              - img [ref=e152]
+              - generic [ref=e154]: TypeScript
+              - generic [ref=e155]: strict 모드 TypeScript로 타입 안전성을 보장합니다.
+            - generic [ref=e157]:
+              - img [ref=e158]
+              - generic [ref=e160]: 반응형 디자인
+              - generic [ref=e161]: 모든 디바이스에서 최적화된 레이아웃을 제공합니다.
+            - generic [ref=e163]:
+              - img [ref=e164]
+              - generic [ref=e166]: ShadcnUI 컴포넌트
+              - generic [ref=e167]: 라디우스 기반의 접근성 높은 컴포넌트 라이브러리가 포함되어 있습니다.
+            - generic [ref=e169]:
+              - img [ref=e170]
+              - generic [ref=e172]: 바로 배포 가능
+              - generic [ref=e173]: Vercel 원클릭 배포를 지원합니다.
+    - contentinfo [ref=e174]:
+      - generic [ref=e175]:
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - link "Starter Kit" [ref=e178] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=e179]: Next.js + TypeScript + TailwindCSS로 빠르게 시작하는 웹 스타터킷
+          - generic [ref=e180]:
+            - paragraph [ref=e181]: 제품
+            - list [ref=e182]:
+              - listitem [ref=e183]:
+                - link "기능" [ref=e184] [cursor=pointer]:
+                  - /url: /features
+              - listitem [ref=e185]:
+                - link "요금제" [ref=e186] [cursor=pointer]:
+                  - /url: /pricing
+              - listitem [ref=e187]:
+                - link "변경 이력" [ref=e188] [cursor=pointer]:
+                  - /url: /changelog
+          - generic [ref=e189]:
+            - paragraph [ref=e190]: 회사
+            - list [ref=e191]:
+              - listitem [ref=e192]:
+                - link "소개" [ref=e193] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e194]:
+                - link "블로그" [ref=e195] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e196]:
+                - link "문의" [ref=e197] [cursor=pointer]:
+                  - /url: /contact
+          - generic [ref=e198]:
+            - paragraph [ref=e199]: 법적 고지
+            - list [ref=e200]:
+              - listitem [ref=e201]:
+                - link "개인정보처리방침" [ref=e202] [cursor=pointer]:
+                  - /url: /privacy
+              - listitem [ref=e203]:
+                - link "이용약관" [ref=e204] [cursor=pointer]:
+                  - /url: /terms
+        - paragraph [ref=e205]: © 2026 Starter Kit. All rights reserved.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e111] [cursor=pointer]:
+    - img [ref=e112]
+  - alert [ref=e115]

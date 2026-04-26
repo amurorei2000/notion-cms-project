@@ -1,0 +1,122 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Starter Kit" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e6]:
+          - link "홈" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - link "소개" [ref=e8] [cursor=pointer]:
+            - /url: /about
+          - link "기능" [ref=e9] [cursor=pointer]:
+            - /url: /features
+          - link "문의" [ref=e10] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e11]:
+          - button "테마 전환" [ref=e12]:
+            - img
+            - img
+          - link "시작하기" [ref=e13] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]: v1.0 출시
+        - heading "빠르게 시작하는 모던 웹 스타터킷" [level=1] [ref=e18]
+        - paragraph [ref=e19]: Next.js App Router, TypeScript, TailwindCSS, ShadcnUI로 구성된 프로덕션 레디 스타터킷. 설정 없이 바로 개발을 시작하세요.
+        - generic [ref=e20]:
+          - link "시작하기" [ref=e21] [cursor=pointer]:
+            - /url: /features
+            - text: 시작하기
+            - img
+          - link "더 알아보기" [ref=e22] [cursor=pointer]:
+            - /url: /about
+        - paragraph [ref=e23]: 무료 오픈소스 · MIT 라이선스
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - heading "주요 기능" [level=2] [ref=e26]
+          - paragraph [ref=e27]: 빠른 개발을 위한 모든 것이 준비되어 있습니다.
+        - generic [ref=e28]:
+          - generic [ref=e30]:
+            - img [ref=e31]
+            - generic [ref=e33]: 빠른 성능
+            - generic [ref=e34]: Next.js App Router와 React Server Components로 최적화된 성능을 제공합니다.
+          - generic [ref=e36]:
+            - img [ref=e37]
+            - generic [ref=e39]: 다크모드 지원
+            - generic [ref=e40]: CSS 변수 기반 디자인 토큰으로 라이트/다크 모드를 완벽하게 지원합니다.
+          - generic [ref=e42]:
+            - img [ref=e43]
+            - generic [ref=e45]: TypeScript
+            - generic [ref=e46]: strict 모드 TypeScript로 타입 안전성을 보장합니다.
+          - generic [ref=e48]:
+            - img [ref=e49]
+            - generic [ref=e51]: 반응형 디자인
+            - generic [ref=e52]: 모든 디바이스에서 최적화된 레이아웃을 제공합니다.
+          - generic [ref=e54]:
+            - img [ref=e55]
+            - generic [ref=e57]: ShadcnUI 컴포넌트
+            - generic [ref=e58]: 라디우스 기반의 접근성 높은 컴포넌트 라이브러리가 포함되어 있습니다.
+          - generic [ref=e60]:
+            - img [ref=e61]
+            - generic [ref=e63]: 바로 배포 가능
+            - generic [ref=e64]: Vercel 원클릭 배포를 지원합니다.
+      - generic [ref=e66]:
+        - heading "지금 바로 시작하세요" [level=2] [ref=e67]
+        - paragraph [ref=e68]: 이 스타터킷을 기반으로 여러분만의 프로젝트를 빠르게 구축하세요.
+        - generic [ref=e69]:
+          - link "문의하기" [ref=e70] [cursor=pointer]:
+            - /url: /contact
+            - text: 문의하기
+            - img
+          - link "기능 살펴보기" [ref=e71] [cursor=pointer]:
+            - /url: /features
+        - paragraph [ref=e72]:
+          - text: 문의 사항이 있으신가요?
+          - link "연락주세요" [ref=e73] [cursor=pointer]:
+            - /url: /contact
+    - contentinfo [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - link "Starter Kit" [ref=e78] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=e79]: Next.js + TypeScript + TailwindCSS로 빠르게 시작하는 웹 스타터킷
+          - generic [ref=e80]:
+            - paragraph [ref=e81]: 제품
+            - list [ref=e82]:
+              - listitem [ref=e83]:
+                - link "기능" [ref=e84] [cursor=pointer]:
+                  - /url: /features
+              - listitem [ref=e85]:
+                - link "요금제" [ref=e86] [cursor=pointer]:
+                  - /url: /pricing
+              - listitem [ref=e87]:
+                - link "변경 이력" [ref=e88] [cursor=pointer]:
+                  - /url: /changelog
+          - generic [ref=e89]:
+            - paragraph [ref=e90]: 회사
+            - list [ref=e91]:
+              - listitem [ref=e92]:
+                - link "소개" [ref=e93] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e94]:
+                - link "블로그" [ref=e95] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e96]:
+                - link "문의" [ref=e97] [cursor=pointer]:
+                  - /url: /contact
+          - generic [ref=e98]:
+            - paragraph [ref=e99]: 법적 고지
+            - list [ref=e100]:
+              - listitem [ref=e101]:
+                - link "개인정보처리방침" [ref=e102] [cursor=pointer]:
+                  - /url: /privacy
+              - listitem [ref=e103]:
+                - link "이용약관" [ref=e104] [cursor=pointer]:
+                  - /url: /terms
+        - paragraph [ref=e105]: © 2026 Starter Kit. All rights reserved.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e111] [cursor=pointer]:
+    - img [ref=e112]
+  - alert [ref=e115]
