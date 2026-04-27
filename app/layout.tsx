@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Starter Kit",
-  description: "Next.js + TypeScript + TailwindCSS + ShadcnUI 스타터킷",
+  title: '팀 스터디 블로그',
+  description: 'LLM 서빙 팀 스터디 블로그 - Notion CMS 기반',
 };
 
 export default function RootLayout({

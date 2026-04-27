@@ -1,0 +1,1 @@
+- [Project Tech Stack](project_stack.md) — notion-cms-blog: Next.js 16 App Router, Tailwind v4, shadcn/UI, Notion API v5 (dataSources.query), pnpm, no src/ dir
