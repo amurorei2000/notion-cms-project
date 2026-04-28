@@ -1,0 +1,2 @@
+- [Notion CMS 블로그 프로젝트 컨텍스트](project_notion_cms_blog.md) — 팀 스터디 블로그의 기술 스택, 현재 구현 상태, 주요 리스크 및 미결 사항
+- [Notion CMS + Next.js 아키텍처 패턴](pattern_notion_cms_architecture.md) — Notion을 CMS로 쓰는 Next.js 프로젝트의 공통 패턴, 리스크, 단계별 기간 벤치마크
