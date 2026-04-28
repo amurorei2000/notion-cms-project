@@ -75,9 +75,8 @@ constants/
 
 > 💡 가정: `services/notion.ts`의 `notion.dataSources.query` 호출은 실제 Notion SDK API와 호환성 검증이 필요하다. `databases.query`가 표준 API이므로 통합 테스트 시 확인 필요 — Phase 2 마일스톤에 포함.
 
-**ADR이 필요한 영역**
-- ADR-001: `dataSources.query` vs `databases.query` API 선택 (현재 코드 불일치 가능성)
-- ADR-002: 이미지 최적화 전략 — Notion 이미지 URL 직접 사용 vs `next/image` 프록시
+`dataSources.query` API 사용
+`next/image` 프록시 사용
 
 ---
 
@@ -95,7 +94,7 @@ constants/
 - [x] ⚡ 크리티컬 패스 — pnpm 패키지 설치 완료 (`@notionhq/client` v5 포함) 🟢
 - [x] ⚡ 크리티컬 패스 — Next.js App Router 프로젝트 구조 초기화 🟢
 - [x] ⚡ 크리티컬 패스 — Tailwind CSS v4 + shadcn/ui 기본 설정 완료 🟢
-- [ ] ⚡ 크리티컬 패스 — `.env.local` 템플릿 파일 생성 (`.env.example`) 🟢
+- [x] ⚡ 크리티컬 패스 — `.env.local` 템플릿 파일 생성 (`.env.example`) 🟢
   - `NOTION_API_KEY=`, `NOTION_DATABASE_ID=` 두 변수 포함
 - [ ] ⚡ 크리티컬 패스 — Notion 데이터베이스 생성 및 스키마 설정 🟡
   - StudyTitle (Title), Writer (Rich Text), StudyNote (Rich Text), StudyRef (URL), StudyImg (URL) 컬럼 확인
@@ -104,7 +103,7 @@ constants/
 **코드 품질 도구**
 - [x] ESLint + Prettier 설정 완료 🟢
 - [x] TypeScript strict 모드 설정 확인 (`tsconfig.json`) 🟢
-- [ ] `pnpm build` 클린 빌드 통과 확인 🟢
+- [x] `pnpm build` 클린 빌드 통과 확인 🟢
 
 #### 산출물
 - `.env.example` 파일 (저장소 커밋용)
@@ -295,7 +294,7 @@ Phase 1 (프로젝트 골격)
 
 | # | 리스크 | 발생 가능성 | 영향도 | 대응 전략 |
 |---|--------|-------------|--------|-----------|
-| 1 | **Notion API `dataSources.query` 호환성 문제** — 현재 `services/notion.ts`에서 `notion.dataSources.query`를 사용하나, `@notionhq/client` v5 공식 API는 `databases.query`이다. | 높음 | 높음 | Phase 2 완료 기준에 실제 API 호출 검증 포함. 오류 발생 시 `notion.databases.query({ database_id: DATABASE_ID, ... })`로 즉시 교체. |
+| 1 | **Notion API `dataSources.query` 런타임 동작 검증 필요** — `@notionhq/client` v5에서 `databases.query`는 존재하지 않으며 `dataSources.query`가 올바른 메서드다. 타입은 유효하나 실제 Notion 데이터베이스 ID로 페이지 목록을 반환하는지는 Integration 연결 후 확인이 필요하다. | 보통 | 높음 | Phase 2 완료 기준에 실제 API 호출 검증 포함. Playwright MCP로 `getPosts()` 응답 구조 확인 후 필요 시 매핑 로직 조정. |
 | 2 | **Notion API Rate Limit 초과** — 무료 Integration은 초당 3요청 제한이 있으며, 팀 다수가 동시 접속 시 429 에러 발생 가능. | 보통 | 보통 | Next.js `revalidate` 또는 ISR(Incremental Static Regeneration)로 캐싱 적용. 목록 페이지는 60초 revalidation 설정. |
 | 3 | **Notion 이미지 URL 만료** — Notion이 반환하는 S3 서명 URL은 1시간 후 만료되어 `<img src>` 직접 사용 시 깨진 이미지 발생. | 높음 | 보통 | Phase 5에서 `next/image` 적용 시 이미지 프록시 또는 만료 처리 전략 수립. 단기적으로는 StudyImg 필드에 외부 영구 URL(imgur 등) 사용 가이드 팀 공유. |
 | 4 | **Notion DB 스키마 변경 시 런타임 오류** — StudyPost 타입과 Notion 실제 컬럼명이 불일치하면 silent failure(빈 문자열 반환) 발생. | 보통 | 보통 | `types/notion.ts`의 StudyPost 인터페이스와 `services/notion.ts` 매핑 로직에 런타임 유효성 검사(zod 또는 수동 타입 가드) 추가. Phase 2(공통 모듈) 단계에서 적용. |

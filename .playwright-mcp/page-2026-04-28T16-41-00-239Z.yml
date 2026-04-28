@@ -1,0 +1,5 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - heading "팀 스터디 블로그" [level=1] [ref=e3]
+  - region "Notifications alt+T"
+  - alert [ref=e4]

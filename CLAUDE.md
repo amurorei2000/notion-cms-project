@@ -43,19 +43,16 @@ Server Component / Server Action
 | `/posts/[id]` | Server Component | 포스트 상세 (`getPost`) |
 | `/upload` | Client Component | 콘텐츠 등록 폼 (`createPost`) |
 
-### 알려진 버그 — Notion API 호출 오류
+### Notion API — `dataSources.query` 사용
 
-`services/notion.ts`가 현재 존재하지 않는 메서드를 호출하고 있다:
+`@notionhq/client` v5(현재 5.20.0)에서는 `databases.query`가 존재하지 않는다. 올바른 API는 `dataSources.query`이며 파라미터 키는 `data_source_id`다.
 
 ```ts
-// 잘못된 코드 (현재 상태)
-notion.dataSources.query({ data_source_id: DATABASE_ID, ... })
-
-// 올바른 코드
-notion.databases.query({ database_id: DATABASE_ID, ... })
+// @notionhq/client v5 올바른 코드
+notion.dataSources.query({ data_source_id: DATABASE_ID, sorts: [...] })
 ```
 
-Notion 연동 작업 시 반드시 먼저 수정한다.
+`dataSources.query`가 실제 Notion 데이터베이스 ID를 받아 페이지 목록을 반환하는지는 실제 Integration 연결 후 Phase 2에서 검증한다.
 
 ### 경로 별칭
 
