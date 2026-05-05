@@ -1,0 +1,26 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - main [ref=e8]:
+    - generic [ref=e32]:
+      - link "← 상세로" [ref=e33] [cursor=pointer]:
+        - /url: /posts/35629ccf-06a5-8108-8daa-c4c4c43e2c3d
+      - heading "E2E 검증 테스트 포스트" [level=1] [ref=e34]
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - generic [ref=e37]: 내용 *
+          - textbox "내용 *" [ref=e38]: Phase 2 & Phase 3 E2E 검증을 위한 테스트 포스트입니다.
+        - generic [ref=e39]:
+          - button "취소" [ref=e40]
+          - button "저장하기" [ref=e41]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e27] [cursor=pointer]:
+    - img [ref=e28]
+  - alert [ref=e31]

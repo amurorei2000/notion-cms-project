@@ -1,0 +1,27 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - heading "스터디 포스트" [level=1] [ref=e10]
+      - link [ref=e12] [cursor=pointer]:
+        - /url: /posts/35029ccf-06a5-806a-9599-d0ec958c1cd7
+        - article [ref=e13]:
+          - img "Claude Code 완전 정복" [ref=e15]
+          - generic [ref=e16]:
+            - heading "Claude Code 완전 정복" [level=2] [ref=e17]
+            - paragraph [ref=e18]: 바이브 코딩과 하네스 엔지니어링
+          - generic [ref=e19]:
+            - generic [ref=e20]: 박원석
+            - generic [ref=e21]: 2026년 4월 29일
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e27] [cursor=pointer]:
+    - img [ref=e28]
+  - alert [ref=e31]

@@ -1,0 +1,28 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - link "← 목록으로" [ref=e11] [cursor=pointer]:
+          - /url: /
+        - link "글 수정" [ref=e12] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-8108-8daa-c4c4c43e2c3d/edit
+      - article [ref=e13]:
+        - generic [ref=e15]: 이미지 없음
+        - heading "E2E 검증 테스트 포스트" [level=1] [ref=e16]
+        - generic [ref=e17]:
+          - generic [ref=e18]: Claude Code
+          - generic [ref=e19]: ·
+          - generic [ref=e20]: 2026년 5월 5일
+        - paragraph [ref=e21]: Phase 2 & Phase 3 E2E 검증을 위한 테스트 포스트입니다.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e27] [cursor=pointer]:
+    - img [ref=e28]

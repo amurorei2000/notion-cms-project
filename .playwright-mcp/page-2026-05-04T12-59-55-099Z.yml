@@ -1,0 +1,15 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - main [ref=e8]:
+    - main [ref=e9]:
+      - heading "팀 스터디 블로그" [level=1] [ref=e10]
+  - region "Notifications alt+T"
+  - alert [ref=e11]

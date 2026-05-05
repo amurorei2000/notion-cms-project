@@ -1,0 +1,41 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - main [ref=e8]:
+    - generic [ref=e38]:
+      - heading "스터디 포스트" [level=1] [ref=e39]
+      - generic [ref=e40]:
+        - link [ref=e41] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-81b5-bdb6-f4f743bab634
+          - article [ref=e42]:
+            - generic [ref=e43]:
+              - heading "Playwright MCP 테스트 포스트" [level=2] [ref=e44]
+              - paragraph [ref=e45]: Playwright MCP를 활용한 E2E 테스트 검증 포스트입니다.
+            - generic [ref=e46]:
+              - generic [ref=e47]: Wonseok
+              - generic [ref=e48]: 2026년 5월 4일
+        - link [ref=e49] [cursor=pointer]:
+          - /url: /posts/35029ccf-06a5-806a-9599-d0ec958c1cd7
+          - article [ref=e50]:
+            - img "Claude Code 완전 정복" [ref=e52]
+            - generic [ref=e53]:
+              - heading "Claude Code 완전 정복" [level=2] [ref=e54]
+              - paragraph [ref=e55]: 바이브 코딩과 하네스 엔지니어링
+            - generic [ref=e56]:
+              - generic [ref=e57]: 박원석
+              - generic [ref=e58]: 2026년 4월 29일
+  - region "Notifications alt+T":
+    - list:
+      - listitem [ref=e59]:
+        - img [ref=e61]
+        - generic [ref=e64]: NEXT_REDIRECT
+  - button "Open Next.js Dev Tools" [ref=e33] [cursor=pointer]:
+    - img [ref=e34]
+  - alert [ref=e37]

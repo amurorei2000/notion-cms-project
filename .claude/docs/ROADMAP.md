@@ -1,6 +1,6 @@
 # 팀 스터디 블로그 — 로드맵
 
-> **최종 업데이트**: 2026-04-28
+> **최종 업데이트**: 2026-05-05
 > **버전**: 1.2.0
 > **상태**: 활성
 
@@ -96,9 +96,9 @@ constants/
 - [x] ⚡ 크리티컬 패스 — Tailwind CSS v4 + shadcn/ui 기본 설정 완료 🟢
 - [x] ⚡ 크리티컬 패스 — `.env.local` 템플릿 파일 생성 (`.env.example`) 🟢
   - `NOTION_API_KEY=`, `NOTION_DATABASE_ID=` 두 변수 포함
-- [ ] ⚡ 크리티컬 패스 — Notion 데이터베이스 생성 및 스키마 설정 🟡
+- [x] ⚡ 크리티컬 패스 — Notion 데이터베이스 생성 및 스키마 설정 🟡
   - StudyTitle (Title), Writer (Rich Text), StudyNote (Rich Text), StudyRef (URL), StudyImg (URL) 컬럼 확인
-- [ ] Notion Integration 생성 및 데이터베이스에 연결 권한 부여 🟢
+- [x] Notion Integration 생성 및 데이터베이스에 연결 권한 부여 🟢
 
 **코드 품질 도구**
 - [x] ESLint + Prettier 설정 완료 🟢
@@ -125,16 +125,16 @@ constants/
 #### 마일스톤
 
 **Notion API 래퍼 완성**
-- [ ] ⚡ 크리티컬 패스 — `services/notion.ts` API 메서드 검증 — `databases.query` 정확한 호출 방식 확인 🟡
-- [ ] 🧪 테스트: Playwright MCP로 `getPosts()` 실제 Notion API 응답 확인 (상태 코드, 반환 데이터 구조 검증) 🟡
-- [ ] `types/notion.ts` StudyPost 인터페이스 확정 + 런타임 유효성 검사 추가 (zod 또는 타입 가드) 🟡
+- [x] ⚡ 크리티컬 패스 — `services/notion.ts` API 메서드 검증 — `databases.query` 정확한 호출 방식 확인 🟡
+- [x] 🧪 테스트: Playwright MCP로 `getPosts()` 실제 Notion API 응답 확인 (상태 코드, 반환 데이터 구조 검증) 🟡
+- [x] `types/notion.ts` StudyPost 인터페이스 확정 + 런타임 유효성 검사 추가 (zod 또는 타입 가드) 🟡
   - Notion DB 스키마 변경 시 silent failure 방지
 
 **공통 레이아웃 컴포넌트**
-- [ ] ⚡ 크리티컬 패스 — 헤더 컴포넌트 구현 — 사이트명, 콘텐츠 등록 링크 포함 🟢
-- [ ] 글로벌 헤더 & 푸터 레이아웃 적용 🟢
-- [ ] Sonner `<Toaster />` 통합 동작 확인 🟢
-- [ ] ThemeProvider 다크 모드 기반 동작 확인 🟢
+- [x] ⚡ 크리티컬 패스 — 헤더 컴포넌트 구현 — 사이트명, 콘텐츠 등록 링크 포함 🟢
+- [x] 글로벌 헤더 & 푸터 레이아웃 적용 🟢
+- [x] Sonner `<Toaster />` 통합 동작 확인 🟢
+- [x] ThemeProvider 다크 모드 기반 동작 확인 🟢
 
 #### 산출물
 - 검증된 `services/notion.ts` (`getPosts`, `getPost`, `createPost`)
@@ -157,35 +157,35 @@ constants/
 #### 마일스톤
 
 **3-A: 콘텐츠 목록 페이지 (`/`)** — 1주 (2026-05-11 ~ 2026-05-17)
-- [ ] ⚡ 크리티컬 패스 — Server Component에서 `getPosts()` 호출 및 데이터 렌더링 🟡
-- [ ] 🧪 테스트: Playwright MCP로 목록 페이지(`/`) 접속 후 Notion DB 데이터 렌더링 확인 (카드 개수, 필드 표시 검증) 🟡
-- [ ] ⚡ 크리티컬 패스 — 포스트 카드 컴포넌트 (`components/features/PostCard.tsx`) 구현 🟡
+- [x] ⚡ 크리티컬 패스 — Server Component에서 `getPosts()` 호출 및 데이터 렌더링 🟡
+- [x] 🧪 테스트: Playwright MCP로 목록 페이지(`/`) 접속 후 Notion DB 데이터 렌더링 확인 (카드 개수, 필드 표시 검증) 🟡
+- [x] ⚡ 크리티컬 패스 — 포스트 카드 컴포넌트 (`components/features/PostCard.tsx`) 구현 🟡
   - StudyTitle, Writer, StudyNote 요약(앞 100자), 등록일, StudyImg 표시
-- [ ] 최신 순 내림차순 정렬 적용 — `sorts: [{ timestamp: 'created_time', direction: 'descending' }]` 🟢
-- [ ] 🧪 테스트: Playwright MCP로 목록 페이지 카드 순서가 최신 등록 순임을 created_time 비교로 검증 🟢
-- [ ] 포스트 카드 → 상세 보기 페이지 링크 연결 (`/posts/[id]`) 🟢
+- [x] 최신 순 내림차순 정렬 적용 — `sorts: [{ timestamp: 'created_time', direction: 'descending' }]` 🟢
+- [x] 🧪 테스트: Playwright MCP로 목록 페이지 카드 순서가 최신 등록 순임을 created_time 비교로 검증 🟢
+- [x] 포스트 카드 → 상세 보기 페이지 링크 연결 (`/posts/[id]`) 🟢
 
 **3-B: 콘텐츠 등록 페이지 (`/upload`)** — 1주 (2026-05-18 ~ 2026-05-24)
-- [ ] ⚡ 크리티컬 패스 — 등록 폼 컴포넌트 (`components/features/UploadForm.tsx`) 구현 🟡
+- [x] ⚡ 크리티컬 패스 — 등록 폼 컴포넌트 (`components/features/UploadForm.tsx`) 구현 🟡
   - StudyTitle (필수), Writer (필수), StudyNote (필수, textarea), StudyRef (URL, 선택), StudyImg (URL, 선택) 입력 필드
-- [ ] ⚡ 크리티컬 패스 — Server Action 또는 API Route로 `createPost()` 연동 🔴
-- [ ] 🧪 테스트: Playwright MCP로 등록 폼 제출 후 Notion DB 신규 레코드 생성 확인 (성공/실패/네트워크 에러 시나리오) 🔴
-- [ ] 필수 필드 클라이언트 사이드 유효성 검사 🟢
-- [ ] 🧪 테스트: Playwright MCP로 필수 필드 누락 시 제출 차단 및 에러 메시지 표시 검증 🟢
-- [ ] 제출 성공 시 목록 페이지(`/`)로 리디렉션 + Sonner 토스트 성공 알림 🟢
-- [ ] 🧪 테스트: Playwright MCP로 제출 성공 후 `/` 리디렉션 및 토스트 알림 표시 E2E 검증 🟢
-- [ ] 제출 실패 시 Sonner 토스트 에러 알림 + 입력 데이터 보존 🟡
-- [ ] 🧪 테스트: Playwright MCP로 API 에러 주입 시 에러 토스트 표시 및 입력값 유지 검증 🟡
+- [x] ⚡ 크리티컬 패스 — Server Action 또는 API Route로 `createPost()` 연동 🔴
+- [x] 🧪 테스트: Playwright MCP로 등록 폼 제출 후 Notion DB 신규 레코드 생성 확인 (성공/실패/네트워크 에러 시나리오) 🔴
+- [x] 필수 필드 클라이언트 사이드 유효성 검사 🟢
+- [x] 🧪 테스트: Playwright MCP로 필수 필드 누락 시 제출 차단 및 에러 메시지 표시 검증 🟢
+- [x] 제출 성공 시 목록 페이지(`/`)로 리디렉션 + Sonner 토스트 성공 알림 🟢
+- [x] 🧪 테스트: Playwright MCP로 제출 성공 후 `/` 리디렉션 및 토스트 알림 표시 E2E 검증 🟢
+- [x] 제출 실패 시 Sonner 토스트 에러 알림 + 입력 데이터 보존 🟡
+- [x] 🧪 테스트: Playwright MCP로 API 에러 주입 시 에러 토스트 표시 및 입력값 유지 검증 🟡
 
 **3-C: 포스트 상세 보기 페이지 (`/posts/[id]`)** — 1주 (2026-05-25 ~ 2026-05-31)
-- [ ] ⚡ 크리티컬 패스 — Server Component에서 `getPost(id)` 호출 및 상세 렌더링 🟡
-- [ ] 🧪 테스트: Playwright MCP로 `/posts/[id]` 접속 후 Notion API 응답 데이터(제목, 작성자, 내용) 정상 렌더링 검증 🟡
-- [ ] StudyImg가 있을 경우 이미지 표시, 없을 경우 플레이스홀더 처리 🟢
-- [ ] StudyRef가 있을 경우 외부 링크 버튼/앵커 표시 🟢
-- [ ] StudyNote 전문 표시 (줄바꿈 보존) 🟢
-- [ ] 존재하지 않는 포스트 접근 시 `notFound()` 처리 🟢
-- [ ] 🧪 테스트: Playwright MCP로 존재하지 않는 ID 접근 시 404 페이지 반환 검증 🟢
-- [ ] 목록 페이지로 돌아가는 뒤로가기 링크 🟢
+- [x] ⚡ 크리티컬 패스 — Server Component에서 `getPost(id)` 호출 및 상세 렌더링 🟡
+- [x] 🧪 테스트: Playwright MCP로 `/posts/[id]` 접속 후 Notion API 응답 데이터(제목, 작성자, 내용) 정상 렌더링 검증 🟡
+- [x] StudyImg가 있을 경우 이미지 표시, 없을 경우 플레이스홀더 처리 🟢
+- [x] StudyRef가 있을 경우 외부 링크 버튼/앵커 표시 🟢
+- [x] StudyNote 전문 표시 (줄바꿈 보존) 🟢
+- [x] 존재하지 않는 포스트 접근 시 `notFound()` 처리 🟢
+- [x] 🧪 테스트: Playwright MCP로 존재하지 않는 ID 접근 시 404 페이지 반환 검증 🟢
+- [x] 목록 페이지로 돌아가는 뒤로가기 링크 🟢
 
 #### 산출물
 - `/` 콘텐츠 목록 페이지 (실제 Notion 데이터 연동)

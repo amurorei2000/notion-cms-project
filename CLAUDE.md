@@ -43,16 +43,26 @@ Server Component / Server Action
 | `/posts/[id]` | Server Component | 포스트 상세 (`getPost`) |
 | `/upload` | Client Component | 콘텐츠 등록 폼 (`createPost`) |
 
-### Notion API — `dataSources.query` 사용
+### Notion API — fetch 직접 호출 (검증 완료)
 
-`@notionhq/client` v5(현재 5.20.0)에서는 `databases.query`가 존재하지 않는다. 올바른 API는 `dataSources.query`이며 파라미터 키는 `data_source_id`다.
+`@notionhq/client` v5(현재 5.20.0)는 `Notion-Version: 2025-09-03`을 사용하며, 이 버전에서 `/databases/{id}/query` 엔드포인트가 제거됐다. `dataSources.query`는 일반 Notion DB에 작동하지 않는다.
+
+**해결책**: SDK 없이 `fetch`로 `Notion-Version: 2022-06-28`을 명시해 직접 호출한다.
 
 ```ts
-// @notionhq/client v5 올바른 코드
-notion.dataSources.query({ data_source_id: DATABASE_ID, sorts: [...] })
+// services/notion.ts — 검증된 패턴
+const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${NOTION_API_KEY}`,
+    'Notion-Version': '2022-06-28',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ sorts: [{ timestamp: 'created_time', direction: 'descending' }] }),
+});
 ```
 
-`dataSources.query`가 실제 Notion 데이터베이스 ID를 받아 페이지 목록을 반환하는지는 실제 Integration 연결 후 Phase 2에서 검증한다.
+`pages.retrieve`(GET)와 `pages.create`(POST)도 동일한 fetch 패턴으로 구현한다. `@notionhq/client`는 import 불필요.
 
 ### 경로 별칭
 
@@ -111,3 +121,25 @@ NOTION_DATABASE_ID=...
 
 - `.claude/docs/PRD.md` — 제품 요구사항
 - `.claude/docs/ROADMAP.md` — 5단계 개발 계획 (현재: Phase 1~2 진행 중)
+
+
+# Claude Code 개발 지침
+## 자주 사용하는 명령어
+```bash
+pnpm run dev
+pnpm run build
+pnpm run check-all
+
+## UI 컴포넌트
+npx shadcn@latest add button
+```
+
+
+## 작업 완료 체크리스트
+
+```bash
+pnpm run check-all   # 모든 검사 통과 확인
+pnpm run build       # 빌드 성공 확인
+```
+
+ ** 상세 규칙은 위 개발 가이드 문서들을 참조하세요 **

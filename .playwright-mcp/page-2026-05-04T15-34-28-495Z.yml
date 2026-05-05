@@ -1,0 +1,39 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - heading "글 등록" [level=1] [ref=e10]
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]: 제목 *
+          - textbox "제목 *" [ref=e14]:
+            - /placeholder: 스터디 주제를 입력하세요
+        - generic [ref=e15]:
+          - generic [ref=e16]: 작성자 *
+          - textbox "작성자 *" [ref=e17]:
+            - /placeholder: 이름을 입력하세요
+        - generic [ref=e18]:
+          - generic [ref=e19]: 내용 *
+          - textbox "내용 *" [ref=e20]:
+            - /placeholder: 학습 내용을 입력하세요
+        - generic [ref=e21]:
+          - generic [ref=e22]: 참고 링크 (선택)
+          - textbox "참고 링크 (선택)" [ref=e23]:
+            - /placeholder: https://...
+        - generic [ref=e24]:
+          - generic [ref=e25]: 이미지 URL (선택)
+          - textbox "이미지 URL (선택)" [ref=e26]:
+            - /placeholder: https://...
+        - button "등록하기" [ref=e27]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e33] [cursor=pointer]:
+    - img [ref=e34]
+  - alert [ref=e37]

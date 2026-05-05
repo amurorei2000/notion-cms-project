@@ -1,0 +1,55 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - heading "스터디 포스트" [level=1] [ref=e10]
+      - generic [ref=e11]:
+        - link [ref=e12] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-8108-8daa-c4c4c43e2c3d
+          - article [ref=e13]:
+            - generic [ref=e14]:
+              - heading "E2E 검증 테스트 포스트" [level=2] [ref=e15]
+              - paragraph [ref=e16]: Phase 2 & Phase 3 E2E 검증을 위한 테스트 포스트입니다.
+            - generic [ref=e17]:
+              - generic [ref=e18]: Claude Code
+              - generic [ref=e19]: 2026년 5월 5일
+        - link [ref=e20] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-815a-93a8-cac33e4297b1
+          - article [ref=e21]:
+            - generic [ref=e22]:
+              - heading "테스트2" [level=2] [ref=e23]
+              - paragraph [ref=e24]: Claude code를 이용한 하네스 엔지니어링 학습 내용 - [Claude.md](http://Claude.md) 작성 - 기술 스택 작성 - 기본 패키지 및 MCP 설치 - 작업 계획서(PRD) 생성 - Shrimp Task Manager를 이용한 plan 생성 - 각 Phase별 Task를 수행
+            - generic [ref=e25]:
+              - generic [ref=e26]: 박원석
+              - generic [ref=e27]: 2026년 5월 4일
+        - link [ref=e28] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-81b5-bdb6-f4f743bab634
+          - article [ref=e29]:
+            - generic [ref=e30]:
+              - heading "Playwright MCP 테스트 포스트" [level=2] [ref=e31]
+              - paragraph [ref=e32]: Playwright MCP를 활용한 E2E 테스트 검증 포스트입니다.
+            - generic [ref=e33]:
+              - generic [ref=e34]: Wonseok
+              - generic [ref=e35]: 2026년 5월 4일
+        - link [ref=e36] [cursor=pointer]:
+          - /url: /posts/35029ccf-06a5-806a-9599-d0ec958c1cd7
+          - article [ref=e37]:
+            - img "Claude Code 완전 정복" [ref=e39]
+            - generic [ref=e40]:
+              - heading "Claude Code 완전 정복" [level=2] [ref=e41]
+              - paragraph [ref=e42]: 바이브 코딩과 하네스 엔지니어링 Claude code를 이용한 하네스 엔지니어링 학습 내용 •
+            - generic [ref=e43]:
+              - generic [ref=e44]: 박원석
+              - generic [ref=e45]: 2026년 4월 29일
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e51] [cursor=pointer]:
+    - img [ref=e52]
+  - alert [ref=e55]

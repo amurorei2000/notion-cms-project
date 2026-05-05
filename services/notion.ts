@@ -1,47 +1,94 @@
-import { Client } from '@notionhq/client';
+import { mapPageToStudyPost } from '@/types/notion';
 import type { StudyPost } from '@/types/notion';
 
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const DATABASE_ID = process.env.NOTION_DATABASE_ID!;
+const NOTION_API_KEY = process.env.NOTION_API_KEY!;
+// @notionhq/client v5 uses Notion-Version 2025-09-03 which removed /databases/{id}/query.
+// Using fetch directly with 2022-06-28 to retain the stable database query endpoint.
+const NOTION_VERSION = '2022-06-28';
+const NOTION_BASE = 'https://api.notion.com/v1';
+
+async function notionPost<T>(path: string, body?: unknown): Promise<T> {
+  const res = await fetch(`${NOTION_BASE}${path}`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${NOTION_API_KEY}`,
+      'Notion-Version': NOTION_VERSION,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body ?? {}),
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(`Notion API error: ${err.message ?? res.statusText}`);
+  }
+  return res.json() as Promise<T>;
+}
+
+async function notionPatch<T>(path: string, body?: unknown): Promise<T> {
+  const res = await fetch(`${NOTION_BASE}${path}`, {
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${NOTION_API_KEY}`,
+      'Notion-Version': NOTION_VERSION,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body ?? {}),
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(`Notion API error: ${err.message ?? res.statusText}`);
+  }
+  return res.json() as Promise<T>;
+}
+
+async function notionGet<T>(path: string): Promise<T> {
+  const res = await fetch(`${NOTION_BASE}${path}`, {
+    headers: {
+      Authorization: `Bearer ${NOTION_API_KEY}`,
+      'Notion-Version': NOTION_VERSION,
+    },
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(`Notion API error: ${err.message ?? res.statusText}`);
+  }
+  return res.json() as Promise<T>;
+}
 
 export async function getPosts(): Promise<StudyPost[]> {
-  const response = await notion.dataSources.query({
-    data_source_id: DATABASE_ID,
-    sorts: [{ timestamp: 'created_time', direction: 'descending' }],
-  });
+  const response = await notionPost<{ results: unknown[] }>(
+    `/databases/${DATABASE_ID}/query`,
+    { sorts: [{ timestamp: 'created_time', direction: 'descending' }] },
+  );
 
-  return response.results.map((page: any) => ({
-    id: page.id,
-    studyTitle: page.properties?.StudyTitle?.title?.[0]?.plain_text ?? '',
-    writer: page.properties?.Writer?.rich_text?.[0]?.plain_text ?? '',
-    studyNote: page.properties?.StudyNote?.rich_text?.[0]?.plain_text ?? '',
-    studyRef: page.properties?.StudyRef?.url ?? '',
-    studyImg: page.properties?.StudyImg?.url ?? '',
-    createdAt: page.created_time ?? '',
-  }));
+  return response.results.flatMap((page) => {
+    const post = mapPageToStudyPost(page);
+    return post ? [post] : [];
+  });
 }
 
 export async function getPost(id: string): Promise<StudyPost | null> {
   try {
-    const page = (await notion.pages.retrieve({ page_id: id })) as any;
-    return {
-      id: page.id,
-      studyTitle: page.properties?.StudyTitle?.title?.[0]?.plain_text ?? '',
-      writer: page.properties?.Writer?.rich_text?.[0]?.plain_text ?? '',
-      studyNote: page.properties?.StudyNote?.rich_text?.[0]?.plain_text ?? '',
-      studyRef: page.properties?.StudyRef?.url ?? '',
-      studyImg: page.properties?.StudyImg?.url ?? '',
-      createdAt: page.created_time ?? '',
-    };
+    const page = await notionGet<unknown>(`/pages/${id}`);
+    return mapPageToStudyPost(page);
   } catch {
     return null;
   }
 }
 
+export async function updatePost(id: string, studyNote: string): Promise<void> {
+  await notionPatch(`/pages/${id}`, {
+    properties: {
+      StudyNote: { rich_text: [{ text: { content: studyNote } }] },
+    },
+  });
+}
+
 export async function createPost(
   post: Omit<StudyPost, 'id' | 'createdAt'>,
 ): Promise<string> {
-  const response = await notion.pages.create({
+  const response = await notionPost<{ id: string }>('/pages', {
     parent: { database_id: DATABASE_ID },
     properties: {
       StudyTitle: { title: [{ text: { content: post.studyTitle } }] },

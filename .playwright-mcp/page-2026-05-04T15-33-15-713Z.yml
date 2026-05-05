@@ -1,0 +1,26 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - main [ref=e8]:
+    - generic [ref=e48]:
+      - link "← 목록으로" [ref=e49] [cursor=pointer]:
+        - /url: /
+      - article [ref=e50]:
+        - generic [ref=e52]: 이미지 없음
+        - heading "테스트2" [level=1] [ref=e53]
+        - generic [ref=e54]:
+          - generic [ref=e55]: 박원석
+          - generic [ref=e56]: ·
+          - generic [ref=e57]: 2026년 5월 4일
+        - paragraph [ref=e58]: Claude code를 이용한 하네스 엔지니어링 학습 내용 - [Claude.md](http://Claude.md) 작성 - 기술 스택 작성 - 기본 패키지 및 MCP 설치 - 작업 계획서(PRD) 생성 - Shrimp Task Manager를 이용한 plan 생성 - 각 Phase별 Task를 수행
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e44] [cursor=pointer]:
+    - img [ref=e45]
+  - alert [ref=e38]
