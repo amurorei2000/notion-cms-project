@@ -1,0 +1,37 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8]
+  - banner [ref=e11]:
+    - generic [ref=e12]:
+      - link "팀 스터디 블로그" [ref=e13] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e14]:
+        - link "글 등록" [ref=e15] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e16]:
+          - img
+  - generic [ref=e17]:
+    - complementary [ref=e18]:
+      - paragraph [ref=e20]: 전체 글
+      - navigation [ref=e21]:
+        - link "E2E 검증 테스트 포스트 5월 5일" [ref=e22] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-8108-8daa-c4c4c43e2c3d
+          - generic [ref=e23]: E2E 검증 테스트 포스트
+          - generic [ref=e24]: 5월 5일
+        - link "테스트2 5월 4일" [ref=e25] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-815a-93a8-cac33e4297b1
+          - generic [ref=e26]: 테스트2
+          - generic [ref=e27]: 5월 4일
+        - link "Playwright MCP 테스트 포스트 5월 4일" [ref=e28] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-81b5-bdb6-f4f743bab634
+          - generic [ref=e29]: Playwright MCP 테스트 포스트
+          - generic [ref=e30]: 5월 4일
+        - link "Claude Code 완전 정복 4월 29일" [ref=e31] [cursor=pointer]:
+          - /url: /posts/35029ccf-06a5-806a-9599-d0ec958c1cd7
+          - generic [ref=e32]: Claude Code 완전 정복
+          - generic [ref=e33]: 4월 29일
+    - main [ref=e34]:
+      - generic [ref=e36]:
+        - heading "404" [level=1] [ref=e37]
+        - heading "This page could not be found." [level=2] [ref=e39]
+  - region "Notifications alt+T"

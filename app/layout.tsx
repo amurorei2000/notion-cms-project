@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/features/Header";
+import { Sidebar } from "@/components/features/Sidebar";
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
@@ -40,7 +41,7 @@ export default function RootLayout({
         jetbrainsMono.variable
       )}
     >
-      <body className="min-h-full flex flex-col font-mono">
+      <body className="h-full flex flex-col font-mono">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -49,9 +50,12 @@ export default function RootLayout({
         >
           <TooltipProvider>
             <Header />
-            <main className="flex-1">
-              {children}
-            </main>
+            <div className="flex flex-1 min-h-0">
+              <Sidebar />
+              <main className="flex-1 overflow-y-auto min-w-0">
+                {children}
+              </main>
+            </div>
             <Toaster />
           </TooltipProvider>
         </ThemeProvider>

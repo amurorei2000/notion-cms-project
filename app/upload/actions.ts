@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import { createPost } from '@/services/notion';
 
 export async function submitPost(formData: FormData): Promise<{ error?: string }> {
@@ -15,6 +16,7 @@ export async function submitPost(formData: FormData): Promise<{ error?: string }
 
   try {
     await createPost({ studyTitle, writer, studyNote, studyRef, studyImg });
+    revalidatePath('/');
     return {};
   } catch (err) {
     return { error: err instanceof Error ? err.message : '등록에 실패했습니다.' };

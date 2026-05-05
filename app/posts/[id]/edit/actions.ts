@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import { updatePost } from '@/services/notion';
 
 export async function updateNote(
@@ -14,6 +15,8 @@ export async function updateNote(
 
   try {
     await updatePost(id, studyNote);
+    revalidatePath('/');
+    revalidatePath(`/posts/${id}`);
     return {};
   } catch (err) {
     return { error: err instanceof Error ? err.message : '수정에 실패했습니다.' };

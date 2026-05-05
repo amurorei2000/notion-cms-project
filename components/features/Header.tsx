@@ -12,10 +12,10 @@ export function Header() {
   return (
     <header className="border-b">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link href="/" className="text-lg font-bold hover:opacity-80 transition-opacity">
+        <Link href="/" className="text-lg font-bold hover:opacity-80 transition-opacity min-w-0 truncate">
           {SITE_NAME}
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <Button asChild variant="outline" size="sm">
             <Link href="/upload">글 등록</Link>
           </Button>

@@ -1,0 +1,73 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "팀 스터디 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "글 등록" [ref=e6] [cursor=pointer]:
+          - /url: /upload
+        - button "테마 전환" [ref=e7]:
+          - img
+  - generic [ref=e8]:
+    - complementary [ref=e9]:
+      - paragraph [ref=e11]: 전체 글
+      - navigation [ref=e12]:
+        - link "E2E 검증 테스트 포스트 5월 5일" [ref=e13] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-8108-8daa-c4c4c43e2c3d
+          - generic [ref=e14]: E2E 검증 테스트 포스트
+          - generic [ref=e15]: 5월 5일
+        - link "테스트2 5월 4일" [ref=e16] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-815a-93a8-cac33e4297b1
+          - generic [ref=e17]: 테스트2
+          - generic [ref=e18]: 5월 4일
+        - link "Playwright MCP 테스트 포스트 5월 4일" [ref=e19] [cursor=pointer]:
+          - /url: /posts/35629ccf-06a5-81b5-bdb6-f4f743bab634
+          - generic [ref=e20]: Playwright MCP 테스트 포스트
+          - generic [ref=e21]: 5월 4일
+        - link "Claude Code 완전 정복 4월 29일" [ref=e22] [cursor=pointer]:
+          - /url: /posts/35029ccf-06a5-806a-9599-d0ec958c1cd7
+          - generic [ref=e23]: Claude Code 완전 정복
+          - generic [ref=e24]: 4월 29일
+    - main [ref=e25]:
+      - generic [ref=e26]:
+        - heading "스터디 포스트" [level=1] [ref=e27]
+        - generic [ref=e28]:
+          - link [ref=e29] [cursor=pointer]:
+            - /url: /posts/35629ccf-06a5-8108-8daa-c4c4c43e2c3d
+            - article [ref=e30]:
+              - generic [ref=e31]:
+                - heading "E2E 검증 테스트 포스트" [level=2] [ref=e32]
+                - paragraph [ref=e33]: Phase 2 & Phase 3 E2E 검증을 위한 테스트 포스트입니다.
+              - generic [ref=e34]:
+                - generic [ref=e35]: Claude Code
+                - generic [ref=e36]: 2026년 5월 5일
+          - link [ref=e37] [cursor=pointer]:
+            - /url: /posts/35629ccf-06a5-815a-93a8-cac33e4297b1
+            - article [ref=e38]:
+              - generic [ref=e39]:
+                - heading "테스트2" [level=2] [ref=e40]
+                - paragraph [ref=e41]: Claude code를 이용한 하네스 엔지니어링 학습 내용 - [Claude.md](http://Claude.md) 작성 - 기술 스택 작성 - 기본 패키지 및 MCP 설치 - 작업 계획서(PRD) 생성 - Shrimp Task Manager를 이용한 plan 생성 - 각 Phase별 Task를 수행
+              - generic [ref=e42]:
+                - generic [ref=e43]: 박원석
+                - generic [ref=e44]: 2026년 5월 4일
+          - link [ref=e45] [cursor=pointer]:
+            - /url: /posts/35629ccf-06a5-81b5-bdb6-f4f743bab634
+            - article [ref=e46]:
+              - generic [ref=e47]:
+                - heading "Playwright MCP 테스트 포스트" [level=2] [ref=e48]
+                - paragraph [ref=e49]: Playwright MCP를 활용한 E2E 테스트 검증 포스트입니다.
+              - generic [ref=e50]:
+                - generic [ref=e51]: Wonseok
+                - generic [ref=e52]: 2026년 5월 4일
+          - link [ref=e53] [cursor=pointer]:
+            - /url: /posts/35029ccf-06a5-806a-9599-d0ec958c1cd7
+            - article [ref=e54]:
+              - img "Claude Code 완전 정복" [ref=e56]
+              - generic [ref=e57]:
+                - heading "Claude Code 완전 정복" [level=2] [ref=e58]
+                - paragraph [ref=e59]: 바이브 코딩과 하네스 엔지니어링 Claude code를 이용한 하네스 엔지니어링 학습 내용 - 테스트1 - 테스트2
+              - generic [ref=e60]:
+                - generic [ref=e61]: 박원석
+                - generic [ref=e62]: 2026년 4월 29일
+  - region "Notifications alt+T"
+  - alert [ref=e63]

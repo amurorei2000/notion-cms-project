@@ -23,7 +23,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between gap-4 mb-6">
         <Link
           href="/"
           className="text-sm text-muted-foreground hover:underline"

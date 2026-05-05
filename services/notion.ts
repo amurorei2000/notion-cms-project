@@ -8,7 +8,7 @@ const NOTION_API_KEY = process.env.NOTION_API_KEY!;
 const NOTION_VERSION = '2022-06-28';
 const NOTION_BASE = 'https://api.notion.com/v1';
 
-async function notionPost<T>(path: string, body?: unknown): Promise<T> {
+async function notionPost<T>(path: string, body?: unknown, revalidate?: number): Promise<T> {
   const res = await fetch(`${NOTION_BASE}${path}`, {
     method: 'POST',
     headers: {
@@ -17,6 +17,7 @@ async function notionPost<T>(path: string, body?: unknown): Promise<T> {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(body ?? {}),
+    ...(revalidate !== undefined && { next: { revalidate } }),
   });
   if (!res.ok) {
     const err = await res.json();
@@ -42,12 +43,13 @@ async function notionPatch<T>(path: string, body?: unknown): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-async function notionGet<T>(path: string): Promise<T> {
+async function notionGet<T>(path: string, revalidate?: number): Promise<T> {
   const res = await fetch(`${NOTION_BASE}${path}`, {
     headers: {
       Authorization: `Bearer ${NOTION_API_KEY}`,
       'Notion-Version': NOTION_VERSION,
     },
+    ...(revalidate !== undefined && { next: { revalidate } }),
   });
   if (!res.ok) {
     const err = await res.json();
@@ -60,6 +62,7 @@ export async function getPosts(): Promise<StudyPost[]> {
   const response = await notionPost<{ results: unknown[] }>(
     `/databases/${DATABASE_ID}/query`,
     { sorts: [{ timestamp: 'created_time', direction: 'descending' }] },
+    60,
   );
 
   return response.results.flatMap((page) => {
@@ -70,7 +73,7 @@ export async function getPosts(): Promise<StudyPost[]> {
 
 export async function getPost(id: string): Promise<StudyPost | null> {
   try {
-    const page = await notionGet<unknown>(`/pages/${id}`);
+    const page = await notionGet<unknown>(`/pages/${id}`, 300);
     return mapPageToStudyPost(page);
   } catch {
     return null;
